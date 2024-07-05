@@ -21,6 +21,7 @@ class team_member_sockets:
 		SOCKETS_LIST.append(self.server_sockets_0)
 		print(f"[+] Listening on {HOST}: {PORT}\n")
 		print("[>]", self.server_sockets_0, "\n")
+		return self.server_sockets_0
 
 	def connection_handling(self):
 		while True:
@@ -29,16 +30,15 @@ class team_member_sockets:
 			# 	if SOCKETS_LIST == self.server_sockets_0:
 			client_socket_data, client_socket_addr = self.server_sockets_0.accept()
 			SOCKETS_LIST.append(client_socket_addr)
-			while True:
-				first_user_data_0 = client_socket_data.recv(1024)
-				first_user_data_0 = first_user_data_0.decode("utf-8")
-				print("[@] Hey, Hi ", format(first_user_data_0))
-				print(f"\t[->]Your connection established {client_socket_addr[0]}:{client_socket_addr[1]}")
-
+			user_data_0 = client_socket_data.recv(1024)
+			client_socket = user_data_0.decode("utf-8")
+			print("[@] Hey, Hi ", format(client_socket))
+			print(f"\t[->]Your connection established {client_socket_addr[0]}:{client_socket_addr[1]}")
 # print(self.server_sockets_0, team_member, "{}@{} Lets get started".format(user_name_0, addr[0]))
 # Incoming message from a client
 
 if __name__ == "__main__":
+	# First class socket communication
 	team_socket = team_member_sockets()
 	team_socket.setup_server_socket()
 	team_socket.connection_handling()
