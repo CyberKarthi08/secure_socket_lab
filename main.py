@@ -12,6 +12,7 @@ class team_member_sockets:
 	def __init__(self):
 		self.server_sockets_0 = None
 		print("\n[+] Termi lab_server let's running......\n")
+		print("hello")
 
 	def setup_server_socket(self):
 		self.server_sockets_0 = socket_0.socket(socket_0.AF_INET, socket_0.SOCK_STREAM)
@@ -34,9 +35,9 @@ class team_member_sockets:
 			client_socket = user_data_0.decode("utf-8")
 			print("[@] Hey, Hi ", format(client_socket))
 			print(f"\t[->]Your connection established {client_socket_addr[0]}:{client_socket_addr[1]}")
+
 # print(self.server_sockets_0, team_member, "{}@{} Lets get started".format(user_name_0, addr[0]))
 # Incoming message from a client
-
 if __name__ == "__main__":
 	# First class socket communication
 	team_socket = team_member_sockets()
